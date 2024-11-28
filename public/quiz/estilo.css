@@ -1,0 +1,92 @@
+@font-face { /*Adicionando fonte*/
+    font-family: 'Inter';
+    src: url(../fontes/Inter/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+body{
+    background-image: url(./imagens/fundo.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /*Impede que o fundo fique centralizado no conteudo, impedindo de cobrir a tela toda ao redimensionar a tela*/
+    font-family: 'Inter';
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+#tituloQuiz{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+#tituloQuiz img{
+    width: 8%;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+#iconeQuestao{
+    background-color: #FFD400;
+    border-radius: 100px;
+}
+
+h2{
+    background-color: #FFD400;
+    border-radius: 20px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 25%;
+    margin-top: -1%;
+}
+
+#botaoComecar{
+    background-color: blueviolet;
+    font-size: 150%;
+    color: white;
+    border: none;
+    padding: 1%;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+#botaoComecar:hover{
+    background-color: rgb(87, 27, 143);
+}
+
+#botaoPlay{
+    transition: 0.5s;
+    width: 8%;
+}
+
+#botaoPlay:hover{
+    width: 6%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#opcoes{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.botao{
+    font-size: 110%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    transition: 0.5s;
+}
+
+.botao:hover{
+    background-color: #878787;
+}

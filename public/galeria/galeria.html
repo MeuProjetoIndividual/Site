@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+    <title>Animes</title>
+</head>
+<body>
+    <header>
+        <img src="../imagens/logo.png" alt="">
+        <nav id="cabecalhoOpcoes">
+            <a href="../index.html">Home</a>
+            <a href="../sobreNos/sobreNos.html">Sobre</a>
+            <a href="">Galeria</a>
+        </nav>
+        <a id="menuUsuario" onclick="abrirMenu()" href="../acessoUsuario/acessoUsuario.html">Área do usuário</a>
+    </header>
+    <div id="bannerAnime">
+        <div id="textoBanner">
+            <h1 id="tituloBannerAnime">Jujutsu Kaisen</h1>
+            <p id="textoBannerAnime">Yuji Itadori, um estudante do ensino médio, se vê envolvido no mundo das maldições após consumir um objeto amaldiçoado, ganhando poderes sobrenaturais para combater espíritos malignos.</p>
+        </div>
+    </div>
+    <div class="swiper">
+        <h1>Animes</h1>
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img onclick="mudarBanner('bannerAnime', 'Jujutsu Kaisen', 'Yuji Itadori, um estudante do ensino médio, se vê envolvido no mundo das maldições após consumir um objeto amaldiçoado, ganhando poderes sobrenaturais para combater espíritos malignos.', './imagens/jujutsu.gif')" src="./imagens/jujutsu.png" alt="">
+            <img onclick="mudarBanner('bannerAnime', 'Dragon Ball Daima', 'Goku e seus amigos, transformados em crianças, enfrentam novos desafios e inimigos enquanto tentam restaurar suas formas originais.', './imagens/daima-dragon-ball.gif')" src="./imagens/dragonBallDaima.png" alt="">
+            <img onclick="mudarBanner('bannerAnime', 'Hunter X Hunter', 'Conheça Gon Freecss, um garoto que se torna um Hunter para encontrar seu pai desaparecido, Ging. Ao longo do caminho, ele faz amigos, enfrenta inimigos poderosos e descobre os segredos do mundo dos Hunters.', './imagens/hunter.gif')" src="./imagens/hunterXHunter.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img onclick="mudarBanner('bannerAnime', 'One Piece', 'Se aventure com Monkey D. Luffy e sua tripulação enquanto buscam o tesouro lendário One Piece para se tornar o Rei dos Piratas.', './imagens/onePiece.gif')" src="./imagens/onePiece.png" alt="">
+            <img onclick="mudarBanner('bannerAnime', 'Naruto Shippuden', 'A história segue Naruto Uzumaki, que retorna à Vila da Folha após treinamento e busca salvar seu amigo Sasuke, enquanto enfrenta novos inimigos e desafios no mundo ninja.', './imagens/naruto-shippuden.gif')" src="./imagens/naruto.png" alt="">
+            <img onclick="mudarBanner('bannerAnime', 'Hajime no Ippo', 'Ippo Makunouchi, um jovem tímido que descobre sua paixão pelo boxe e treina arduamente para se tornar um campeão, enfrentando vários adversários e desafios ao longo de sua jornada.', './imagens/hajimeNoIppo.gif')" src="./imagens/hajimeNoIppo.png" alt="">
+          </div>
+        </div>
+      
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <div id="bannerDesenho">
+        <div id="textoBanner">
+            <h1 id="tituloBannerDesenho">Steven Universo Futuro</h1>
+            <p id="textoBannerDesenho">Steven enfrenta desafios pessoais e ajuda Gems a encontrar novos propósitos após salvar o universo.</p>
+        </div>
+    </div>
+    <div class="swiper">
+        <h1>Desenhos</h1>
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img onclick="mudarBanner('bannerDesenho', 'Steven Universo Futuro', 'Steven enfrenta desafios pessoais e ajuda Gems a encontrar novos propósitos após salvar o universo.', './imagens/steven.gif')"  src="./imagens/stevenUniversoFuturo.png" alt="">
+            <img onclick="mudarBanner('bannerDesenho', 'Hora de Aventura', 'Acompanha as aventuras de Finn, um garoto humano, e Jake, seu cachorro com poderes mágicos de mudar de forma. Juntos, eles exploram a Terra de Ooo, enfrentando criaturas estranhas e ajudando amigos em suas missões.', './imagens/horaDeAventura.gif')"  src="./imagens/horaDeAventura.png" alt="">
+            <img onclick="mudarBanner('bannerDesenho', 'Apenas um Show', 'Mordecai e Rigby, dois amigos que trabalham em um parque, tentam evitar suas responsabilidades, mas acabam se metendo em confusões hilárias e situações absurdas.', './imagens/apenasUmShow.gif')"  src="./imagens/apenasUmShow.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img onclick="mudarBanner('bannerDesenho', 'Ben 10', 'Ben Tennyson encontra o Omnitrix, que permite se transformar em alienígenas, e usa esses poderes para combater vilões e proteger a Terra.', './imagens/ben10.gif')"  src="./imagens/ben10.png" alt="">
+            <img onclick="mudarBanner('bannerDesenho', 'Mutante Rex', 'Rex, um adolescente com nanomáquinas em seu corpo, usa seus poderes para lutar contra mutantes e proteger a humanidade.', './imagens/mutanteRex.gif')"  src="./imagens/mutanteRex.png" alt="">
+            <img onclick="mudarBanner('bannerDesenho', 'Super Choque', 'Virgil Hawkins, um adolescente com habilidades eletromagnéticas adquiridas após um acidente químico, se torna o super-herói Static e protege sua cidade de criminosos e outros meta-humanos.', './imagens/superChoque.gif')"  src="./imagens/superChoque.png" alt="">
+          </div>
+        </div>
+      
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <footer>
+        <div id="footerMenu">
+            <h3>Menu</h3>
+            <a href="">Home</a>
+            <a href="">Sobre</a>
+            <a href="">Galeria</a>
+            <a href="">Dashboard</a>
+        </div>
+        <div id="footerContao">
+            <h3>Entre em Contato:</h3>
+            <p>Rua MMCD, 938, Pauliceia, São Paulo<br>09690-100</p>
+            <p>(11) 97235-4090</p>
+            <p>fabio.cesare@sptech.school</p>
+        </div>
+        <img src="../imagens/iconeMidiaSocial.png" alt="">
+    </footer>
+</body>
+</html>
+
+<script>
+    const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    });
+
+    function mudarBanner(imgBanner, tituloBanner, textoBanner, url){
+        const banner = document.getElementById(imgBanner)
+        banner.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${url})`
+        if(imgBanner == 'bannerAnime'){
+            tituloBannerAnime.innerHTML = tituloBanner
+            textoBannerAnime.innerHTML = textoBanner
+        }
+        else{
+            tituloBannerDesenho.innerHTML = tituloBanner
+            textoBannerDesenho.innerHTML = textoBanner
+        }
+    }
+</script>

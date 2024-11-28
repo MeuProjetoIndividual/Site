@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Adivinhe a Abertura</title>
+</head>
+<body onload="novaQuestao()">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;" id="tituloQuiz">
+        <img id="iconeQuestao" src="./imagens/iconQuestion.png" alt="">
+        <h2>Adivinhe a Abertura</h2>
+        <button onclick="comecarQuiz()" id="botaoComecar">Começar</button>
+    </div>
+    <div id="conteudoQuiz" style="display: none;">
+        <center>
+            <a onclick="tocarAudio()">
+                <img id="botaoPlay" src="./imagens/botaoPlay.png" alt="">
+            </a>
+        </center>
+        <div id="opcoes">
+            <button onclick="confirmarBotao()" class="botao">Jujutsu Kaisen</button>
+            <button onclick="confirmarBotao()" class="botao">Super Choque</button>
+            <button onclick="confirmarBotao()" class="botao">Dragon Ball</button>
+            <button onclick="confirmarBotao()" class="botao">Hora de Aventura</button>
+        </div>
+    </div>
+    <audio id="audio" src="./audios/jujutsu.mp3">
+    </body>
+</html>
+
+<script>
+    function comecarQuiz(){
+        botaoComecar.style.display = 'none'
+        tituloQuiz.style.display = 'flex'
+        tituloQuiz.style.position = 'relative'
+        conteudoQuiz.style.display = ''
+    }
+    
+    
+    var musicaTocando = false
+    var audio = document.getElementById('audio')
+    function tocarAudio(){
+        if(musicaTocando == false){
+            musicaTocando = true
+            botaoPlay.src = "./imagens/botaoPause.png"
+            audio.play()
+        }
+        else{
+            musicaTocando = false
+            botaoPlay.src = "./imagens/botaoPlay.png"
+            audio.pause()
+        }
+    }
+
+    var tema = ""
+
+    function novaQuestao(){
+        opcaoAudio = parseInt(Math.random() * 2)
+        if(opcaoAudio == 0){
+            audio.src = './audios/jujutsu.mp3'
+            tema = 'Jujutsu Kaisen'
+        }
+        else{
+            // Mudar o tema dps (tema não utilizado)
+            audio.src = './audios/pokemon.mp3'
+            tema = 'Pokemon'
+        }
+    }
+
+    function confirmarBotao(){
+        const botoes = document.getElementsByClassName('botao')
+        
+        for(var botaoAtual = 0; botaoAtual < botoes.length; botaoAtual++){
+            if(botoes[botaoAtual].innerHTML == tema){
+                botoes[botaoAtual].style.backgroundColor = "lightgreen"
+            }
+            else { 
+                botoes[botaoAtual].style.backgroundColor = "red"; 
+            }
+        }
+    }
+</script>

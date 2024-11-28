@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="./estilo.css">
+    <title>Página Inicial</title>
+</head>
+<body onload="validarSessao()">
+    <header>
+        <img src="./imagens/logo.png" alt="">
+        <nav id="cabecalhoOpcoes">
+            <a href="">Home</a>
+            <a href="./sobreNos/sobreNos.html">Sobre</a>
+            <a href="./galeria/galeria.html">Galeria</a>
+        </nav>
+        <a id="menuUsuario" onclick="abrirMenu()" href="./acessoUsuario/acessoUsuario.html">Área do usuário</a>
+    </header>
+    <nav id="menuLateral">
+        <a onclick="fecharMenu()"><img src="./imagens/botaoVoltarPreto.png" alt=""></a>
+        <h3>Olá, <span id="b_usuario"></span>!</h3>
+        <a href="">Quiz</a>
+        <a href="">Ranking</a>
+        <a onclick="limparSessao()">Sair</a>
+    </nav>
+    <div id="secaoInicialHome">
+        <p>Venha conhecer o mundo das animações!</p>
+        <img src="./imagens/imagemInicialHome.png" alt="">
+    </div>
+    <div id="secaoAnimeHome">
+        <h1>Animes</h1>
+        <p>Descubra animes incríveis que inspiram o crescimento pessoal.</p>
+        <img src="./imagens/luffy.png" alt="">
+        <button class="botaoAnimeDesenho">Descobrir</button>
+    </div>
+    <div id="secaoDesenhoHome">
+        <h1>Desenhos</h1>
+        <p>Encontre os melhores desenhos que trazem lições valiosas.</p>
+        <img src="./imagens/finnJake.png" alt="">
+        <button class="botaoAnimeDesenho">Explorar</button>
+    </div>
+    <div id="secaoSobreHome">
+        <div id="secaoSobreTexto">
+            <h1>Sobre Nós</h1>
+            <p>Com o intuito de ser uma comunidade aberta aos amantes de desenhos e animes, nós da AniMundo viemos com o objetivo de ...</p>
+            <button>Saiba Mais</button>
+        </div>
+        <img src="./imagens/logo.png" alt="">
+    </div>
+    <footer>
+        <div id="footerMenu">
+            <h3>Menu</h3>
+            <a href="">Home</a>
+            <a href="">Sobre</a>
+            <a href="">Galeria</a>
+            <a href="">Dashboard</a>
+        </div>
+        <div id="footerContao">
+            <h3>Entre em Contato:</h3>
+            <p>Rua MMCD, 938, Pauliceia, São Paulo<br>09690-100</p>
+            <p>(11) 97235-4090</p>
+            <p>fabio.cesare@sptech.school</p>
+        </div>
+        <img src="./imagens/iconeMidiaSocial.png" alt="">
+    </footer>
+</body>
+</html>
+
+<script>
+    function abrirMenu(){
+        menuLateral.style.width = '300px'
+    }
+    function fecharMenu(){
+        menuLateral.style.width = '0px'
+    }
+</script>

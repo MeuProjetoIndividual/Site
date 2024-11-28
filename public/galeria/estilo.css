@@ -1,0 +1,183 @@
+@font-face { /*Adicionando fonte*/
+    font-family: 'Inter';
+    src: url(../fontes/Inter/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+body{
+    background-color: black;
+    font-family: 'Inter';
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: -7%;
+    margin-top: 1%;
+}
+
+header img{
+    width: 6%;
+}
+
+#cabecalhoOpcoes{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+nav{
+    gap: 5%;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+    font-size: 125%;
+    font-weight: bold;
+}
+
+#menuUsuario{
+    background-color: #FF7B00;
+    padding: 0.5%;
+    border-radius: 10px;
+}
+
+header a:hover{
+    background-color: #FF8D0A;
+    border-radius: 10px;
+    box-shadow: 0 0 0 10px #FF8D0A;/*horizontal, vertical, desfoque, tamanho, cor*/
+    transition: 0.5s;
+}
+
+#bannerAnime{
+    /*linear só funciona com duas cores*/
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imagens/jujutsu.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 1%;
+    height: 450px;
+    padding-left: 5%;
+    padding-bottom: 2%;
+} 
+
+#bannerAnime p, #bannerDesenho p{
+    width: 50%;
+    font-size: 110%;
+    text-align: justify;
+}
+
+#bannerDesenho{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imagens/steven.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 1%;
+    height: 450px;
+    padding-left: 5%;
+    padding-bottom: 2%;
+}
+
+#textoBanner{
+    margin-top: 20%;
+}
+
+#sombra{
+    background-color: black;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 450px;
+}
+
+
+.swiper {
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.swiper h1{
+    margin-left: 12%;
+}
+
+.swiper-slide{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.swiper:hover .swiper-button-prev{
+    opacity: 1;
+}
+
+.swiper:hover .swiper-button-next{
+    opacity: 1;
+}
+
+.swiper-slide img{
+    width: 20%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.swiper-slide img:hover{
+    width: 18%;
+    cursor: pointer;
+}
+
+.swiper-slide img:active{
+    width: 16%;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    color: transparent;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.swiper-button-prev{
+    background-image: url(./imagens/botaoAnterior.png);
+}
+
+.swiper-button-next{
+    background-image: url(./imagens/botaoProximo.png);
+}
+
+footer{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20%;
+}
+
+footer #footerMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer #footerContato{
+    display: flex;
+    flex-direction: column;
+}
+
+footer img{
+    height: 200px;
+}
