@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="./estilo.css">
     <title>Página Inicial</title>
 </head>
@@ -20,8 +20,8 @@
     <nav id="menuLateral">
         <a onclick="fecharMenu()"><img src="./imagens/botaoVoltarPreto.png" alt=""></a>
         <h3>Olá, <span id="b_usuario"></span>!</h3>
-        <a href="">Quiz</a>
-        <a href="">Ranking</a>
+        <a href="./quiz/quiz.html">Quiz</a>
+        <a href="./dashboard/dashboard.html">Ranking</a>
         <a onclick="limparSessao()">Sair</a>
     </nav>
     <div id="secaoInicialHome">
@@ -32,19 +32,25 @@
         <h1>Animes</h1>
         <p>Descubra animes incríveis que inspiram o crescimento pessoal.</p>
         <img src="./imagens/luffy.png" alt="">
-        <button class="botaoAnimeDesenho">Descobrir</button>
+        <button onclick="location.href='./galeria/galeria.html'" class="botaoAnimeDesenho">Descobrir</button>
     </div>
     <div id="secaoDesenhoHome">
         <h1>Desenhos</h1>
         <p>Encontre os melhores desenhos que trazem lições valiosas.</p>
         <img src="./imagens/finnJake.png" alt="">
-        <button class="botaoAnimeDesenho">Explorar</button>
+        <button onclick="location.href='./galeria/galeria.html'" href="./galeria/galeria.html" class="botaoAnimeDesenho">Explorar</button>
+    </div>
+    <div id="secaoQuiz">
+        <img id="iconeQuestao" src="./quiz/imagens/iconQuestion.png" alt="">
+        <h1>Acha que sabe de tudo?</h1>
+        <p>Torne-se membro e se desafie com o nosso quiz e fique entre os 3 melhores</p>
+        <button onclick="location.href='./acessoUsuario/acessoUsuario.html'">Vamos Nessa!</button>
     </div>
     <div id="secaoSobreHome">
         <div id="secaoSobreTexto">
             <h1>Sobre Nós</h1>
             <p>Com o intuito de ser uma comunidade aberta aos amantes de desenhos e animes, nós da AniMundo viemos com o objetivo de ...</p>
-            <button>Saiba Mais</button>
+            <button onclick="location.href='./sobreNos/sobreNos.html'">Saiba Mais</button>
         </div>
         <img src="./imagens/logo.png" alt="">
     </div>
@@ -52,9 +58,8 @@
         <div id="footerMenu">
             <h3>Menu</h3>
             <a href="">Home</a>
-            <a href="">Sobre</a>
-            <a href="">Galeria</a>
-            <a href="">Dashboard</a>
+            <a href="./sobreNos/sobreNos.html">Sobre</a>
+            <a href="./galeria/galeria.html">Galeria</a>
         </div>
         <div id="footerContao">
             <h3>Entre em Contato:</h3>

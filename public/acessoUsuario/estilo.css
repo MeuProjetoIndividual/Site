@@ -154,7 +154,6 @@ input:focus { /*quando o input for selecionado*/
 #botaoVoltar:hover{
     width: 6%;
     height: 6%;
-    transition: 0.5s
 }
 
 .loading-div {

@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="estilo.css">
     <title>Animes</title>
 </head>
-<body>
+<body onload="validarSessao()">
     <header>
         <img src="../imagens/logo.png" alt="">
         <nav id="cabecalhoOpcoes">
@@ -18,6 +19,13 @@
         </nav>
         <a id="menuUsuario" onclick="abrirMenu()" href="../acessoUsuario/acessoUsuario.html">Área do usuário</a>
     </header>
+    <nav id="menuLateral">
+        <a onclick="fecharMenu()"><img src="../imagens/botaoVoltarPreto.png" alt=""></a>
+        <h3>Olá, <span id="b_usuario"></span>!</h3>
+        <a href="../quiz/quiz.html">Quiz</a>
+        <a href="../dashboard/dashboard.html">Ranking</a>
+        <a onclick="limparSessao()">Sair</a>
+    </nav>
     <div id="bannerAnime">
         <div id="textoBanner">
             <h1 id="tituloBannerAnime">Jujutsu Kaisen</h1>
@@ -75,10 +83,9 @@
     <footer>
         <div id="footerMenu">
             <h3>Menu</h3>
-            <a href="">Home</a>
-            <a href="">Sobre</a>
+            <a href="../index.html">Home</a>
+            <a href="../sobreNos/sobreNos.html">Sobre</a>
             <a href="">Galeria</a>
-            <a href="">Dashboard</a>
         </div>
         <div id="footerContao">
             <h3>Entre em Contato:</h3>
@@ -92,6 +99,14 @@
 </html>
 
 <script>
+    function abrirMenu(){
+        menuLateral.style.width = '300px'
+    }
+
+    function fecharMenu(){
+        menuLateral.style.width = '0px'
+    }
+
     const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
