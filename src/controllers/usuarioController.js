@@ -23,9 +23,12 @@ function autenticar(req, res) {
                             nome: resultadoAutenticar[0].nome,
                             email: resultadoAutenticar[0].email,
                             senha: resultadoAutenticar[0].senha,
+                            resposta: 'Login realizado com sucesso!'
                         });
                     } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
+                        res.json({
+                            resposta: "Email e/ou senha inválido(s)"
+                        })
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }

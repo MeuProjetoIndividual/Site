@@ -127,6 +127,10 @@ a{
     margin-bottom: 5%;
 }
 
+#imgDono{
+    width: 20%;
+}
+
 #sobreDonoTexto{
     display: flex;
     flex-direction: column;
@@ -138,7 +142,7 @@ a{
 #imgPincel{
     position:absolute;
     left: 88%;
-    top: 215%;
+    top: 208%;
 }
 
 footer{

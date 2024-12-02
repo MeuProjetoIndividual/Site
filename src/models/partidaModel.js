@@ -16,7 +16,7 @@ function cadastrarPartida(qtdAcerto, qtdErro, fkUsuario) {
 function coletarDados(idUsuario) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function coletarDados(): ", idUsuario)
     var instrucaoSql = `
-        SELECT count(idPartida) as qtd_partida, sum(qtdAcerto) as soma_acerto, sum(qtdErro) as soma_erro FROM Partida WHERE fkUsuario = ${idUsuario};
+        SELECT count(idPartida) as qtd_partida, sum(qtdAcerto) as soma_acerto, sum(qtdErro) as soma_erro FROM Partida WHERE fkUsuario = ${idUsuario} and dia = current_date();
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
