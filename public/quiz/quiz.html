@@ -42,10 +42,10 @@
             </div>
         </center>
         <div id="opcoes">
-            <button onclick="mostrarResposta(), validarBotao(this)" class="botao">Jujutsu Kaisen</button>
-            <button onclick="mostrarResposta(), validarBotao(this)" class="botao">Super Choque</button>
-            <button onclick="mostrarResposta(), validarBotao(this)" class="botao">Dragon Ball</button>
-            <button onclick="mostrarResposta(), validarBotao(this)" class="botao">Hora de Aventura</button>
+            <button onclick="mostrarResposta(), validarBotao(this)" class="botao"></button>
+            <button onclick="mostrarResposta(), validarBotao(this)" class="botao"></button>
+            <button onclick="mostrarResposta(), validarBotao(this)" class="botao"></button>
+            <button onclick="mostrarResposta(), validarBotao(this)" class="botao"></button>
         </div>
     </div>
     <audio id="audio" src="./audios/jujutsu.mp3">
@@ -73,6 +73,7 @@
         placar.style.display = ''
         menuUsuario.style.display = ''
         conteudoQuiz.style.display = ''
+        trocarBotoes()
     }
     
     
@@ -94,33 +95,90 @@
     var tema = ""
 
     function novoTema(){
-        opcaoAudio = parseInt(Math.random() * 4)
+        opcaoAudio = parseInt(Math.random() * 12)
         if(opcaoAudio == 0){
             audio.src = './audios/jujutsu.mp3'
             tema = 'Jujutsu Kaisen'
         }
         else if(opcaoAudio == 1){
-            audio.src = './audios/superChoque.mp3'
-            tema = 'Super Choque'
+            audio.src = './audios/dragonBall.mp3'
+            tema = 'Dragon Ball GT'
         }
         else if(opcaoAudio == 2){
-            audio.src = './audios/dragonBall.mp3'
-            tema = 'Dragon Ball'
+            audio.src = './audios/hunterXHunter.mp3'
+            tema = 'Hunter x Hunter'
         }
-        else{
+        else if(opcaoAudio == 3){
+            audio.src = './audios/onePiece.mp3'
+            tema = 'One Piece'
+        }
+        else if(opcaoAudio == 4){
+            audio.src = './audios/naruto.mp3'
+            tema = 'Naruto Shippuden'
+        }
+        else if(opcaoAudio == 5){
+            audio.src = './audios/hajimeNoIppo.mp3'
+            tema = 'Hajime no Ippo'
+        }
+        else if(opcaoAudio == 6){
+            audio.src = './audios/stevenUniversoFuturo.mp3'
+            tema = 'Steven Universo Futuro'
+        }
+        else if(opcaoAudio == 7){
             audio.src = './audios/horaDeAventura.mp3'
             tema = 'Hora de Aventura'
+        }
+        else if(opcaoAudio == 8){
+            audio.src = './audios/apenasUmShow.mp3'
+            tema = 'Apenas um Show'
+        }
+        else if(opcaoAudio == 9){
+            audio.src = './audios/ben10.mp3'
+            tema = 'Ben 10'
+        }
+        else if(opcaoAudio == 10){
+            audio.src = './audios/mutanteRex.mp3'
+            tema = 'Mutante Rex'
+        }
+        else{
+            audio.src = './audios/superChoque.mp3'
+            tema = 'Super Choque'
         }
     }
 
     const botoes = document.getElementsByClassName('botao')
     const botaoRoxo = document.getElementsByClassName('botaoRoxo')
     var questao = 1
+    function trocarBotoes(){
+        const temas = ['Jujutsu Kaisen', 'Dragon Ball GT', 'Hunter x Hunter', 'One Piece', 'Naruto Shippuden', 'Hajime no Ippo', 'Steven Universo Futuro', 'Hora de Aventura', 'Apenas um Show', 'Ben 10', 'Mutante Rex', 'Super Choque']
+        //Removendo o tema escolhido e que será a resposta
+        for(var temaAtual = 0; temaAtual < temas.length; temaAtual++){
+            if(temas[temaAtual] == tema){
+                temas.splice(temaAtual, 1)
+            }
+        }
+
+        //Definir onde ficará a resposta
+        const botaoResposta = parseInt(Math.random() * 4)
+
+        for(var botao = 0; botao < botoes.length; botao++){
+            temaEscolhido = parseInt(Math.random() * temas.length)
+            if(botaoResposta == botao){
+                botoes[botao].innerHTML = tema
+            }
+            else{
+                botoes[botao].innerHTML = temas[temaEscolhido]
+                temas.splice(temaEscolhido, 1)
+            }
+        }
+    }
+
     function novaPergunta(){
         botaoRoxo[1].style.display = 'none'
         botaoRoxo[2].style.display = 'none'
         botaoPlay.src = "./imagens/botaoPlay.png"
         novoTema()
+        trocarBotoes()
         for(var botaoAtual = 0; botaoAtual < botoes.length; botaoAtual++){
             botoes[botaoAtual].style.backgroundColor = '#dcdada'
         }

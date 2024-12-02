@@ -56,22 +56,44 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
+        usuarioModel.validarEmail(email)
+        .then(
+            function (resultadoValidarEmail) {
+                console.log(`\nResultados encontrados: ${resultadoValidarEmail.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultadoValidarEmail)}`); // transforma JSON em String
+
+                if (resultadoValidarEmail.length == 1) {
+                    console.log(resultadoValidarEmail);
+                    res.json({
+                        resposta: 'Email Existente',
+                    });
+                } else {
+                    usuarioModel.cadastrar(nome, email, senha)
+                    .then(
+                        function () {
+                            res.json({
+                                resposta: "Cadastro realizado com sucesso! Por favor realize o login"
+                            });
+                        }
+                    ).catch(
+                        function (erro) {
+                            console.log(erro);
+                            console.log(
+                                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                                erro.sqlMessage
+                            );
+                            res.status(500).json(erro.sqlMessage);
+                        }
                     );
-                    res.status(500).json(erro.sqlMessage);
                 }
-            );
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao realizar o cadastro! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
     }
 }
 

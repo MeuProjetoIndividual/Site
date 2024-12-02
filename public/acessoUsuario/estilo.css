@@ -17,6 +17,12 @@ body{
     margin-top: 5%;
 }
 
+.erro{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
 #ladoEsquerdo{
     background-color: #FFD014;
     display: flex;

@@ -9,14 +9,6 @@
 </head>
 <body>   
     <div id="telaAcesso">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-              <span id="mensagem_erro"></span>
-            </div>
-            <div class="card_erro" id="cardErroNome">
-              <span id="mensagem_erroNome"></span>
-            </div>
-          </div>
         <div id="ladoEsquerdo">
             <div class="login">
                 <div id="ladoEsquerdoParte1">
@@ -42,6 +34,7 @@
                 <h1>Faça Login</h1>
                 <input id="inputEmailLogin" type="text" placeholder="Email">
                 <input id="inputSenhaLogin" type="password" placeholder="Senha"><br>
+                <div class="erro"></div>
                 <a href="">Esqueci minha senha</a><br>
                 <button onclick="entrar()">Entrar</button>
             </div>
@@ -50,10 +43,8 @@
                 <input id="inputNomeCadastro" type="text" placeholder="Nome">
                 <input id="inputEmailCadastro" type="text" placeholder="Email">
                 <input id="inputSenhaCadastro" type="password" placeholder="Senha"><br>
+                <div class="erro"></div>
                 <button onclick="cadastrar()">Cadastro</button>
-                <div id="div_aguardar" class="loading-div">
-                    <img src="../assets/aguarde-orange.gif" id="loading-gif" />
-                </div>
             </div>
         </div>
     </div>
@@ -90,9 +81,8 @@
         cadastro[1].style.display = 'none'
     }
 
+    const erro = document.getElementsByClassName('erro')
     function cadastrar() {
-    // aguardar();
-
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = inputNomeCadastro.value;
@@ -105,11 +95,10 @@
       emailVar == "" ||
       senhaVar == "" 
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Todos os campos devem estar preenchidos)";
+      erro[1].style.display = "";
+      erro[1].innerHTML =
+        "Todos os campos devem estar preenchidos";
 
-      finalizarAguardar();
       return false;
     }
     else {
@@ -117,11 +106,10 @@
     }
 
     if (nomeVar.length < 2) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Nome precisa ter mais de um caracter)";
+      erro[1].style.display = "";
+      erro[1].innerHTML =
+        "Nome precisa ter mais de um caracter";
 
-      finalizarAguardar();
       return false;
     }
     else {
@@ -129,11 +117,10 @@
     }
 
     if (emailVar.indexOf('@') == -1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(E-mail deve conter o @)";
+      erro[1].style.display = "block";
+      erro[1].innerHTML =
+        "E-mail deve conter o @";
 
-      finalizarAguardar();
       return false;
     }
     else {
@@ -141,11 +128,10 @@
     }
 
     if (senhaVar < 6) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Senha deve conter mais de 6 caracteres)";
+      erro[1].style.display = "block";
+      erro[1].innerHTML =
+        "Senha deve conter mais de 6 caracteres";
 
-      finalizarAguardar();
       return false;
     }
     else {
@@ -170,39 +156,38 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela inicial...";
-
-          setTimeout(() => {
-            window.location = "../acessarUsuario.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
+          resposta.json().then(json => {
+            erro[1].style.display = "";
+            erro[1].innerHTML = json.resposta;
+            
+            if(json.resposta != 'Email Existente'){
+              setTimeout(() => {
+                window.location = "./acessoUsuario.html";
+              }, "2000");
+            }
+            
+          })
+  
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+
       });
 
     return false;
   }
 
   function entrar() {
-        aguardar();
-
         var emailVar = inputEmailLogin.value;
         var senhaVar = inputSenhaLogin.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            erro[0].style.display = "block"
+            erro[0].innerHTML = "Há campos em branco";
+    
             return false;
         }
         else {
@@ -234,9 +219,11 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
+                    erro[0].style.display = ''
+                    erro[0].innerHTML = 'Login realizado com sucesso!'
                     setTimeout(function () {
                         window.location = "../index.html";
-                    }, 1000); // apenas para exibir o loading   
+                    }, 2000); // apenas para exibir o loading   
 
                 });
 
@@ -258,7 +245,7 @@
     }
 
   function sumirMensagem() {
-    cardErro.style.display = "none";
-    cardErroNome.style.display = "none";
+    erro[0].style.display = 'none'
+    erro[1].style.display = 'none'
   }
 </script>

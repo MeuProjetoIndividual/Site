@@ -77,6 +77,7 @@ function coletarDadosGrafico(req, res) {
                     console.log(resultadoAutenticar);
 
                     const top3 = []
+                    const top3Usuario = []
                     for(var posicao = 0; posicao < resultadoAutenticar.length; posicao++){
                         top3[posicao] = resultadoAutenticar[posicao]
                         if(top3[posicao] == undefined){
@@ -85,14 +86,21 @@ function coletarDadosGrafico(req, res) {
                         else{
                             top3[posicao] = resultadoAutenticar[posicao].soma_acerto
                         }
+                        top3Usuario[posicao] = resultadoAutenticar[posicao]
+                        if(top3Usuario[posicao] == undefined){
+                            top3Usuario[posicao] = 0
+                        }
+                        else{
+                            top3Usuario[posicao] = resultadoAutenticar[posicao].usuario
+                        }
                     }
                     res.json({
                         somaAcerto0: top3[0],
-                        usuario0: resultadoAutenticar[0].usuario,
+                        usuario0: top3Usuario[0],
                         somaAcerto1: top3[1],
-                        usuario1: resultadoAutenticar[1].usuario,
+                        usuario1: top3Usuario[1],
                         somaAcerto2: top3[2],
-                        usuario2: resultadoAutenticar[2].usuario,
+                        usuario2: top3Usuario[2],
                     });
                     if (resultadoAutenticar.length == 0) {
                         res.status(403).send("nenhuma partida realizada");
